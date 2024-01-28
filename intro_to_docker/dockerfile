@@ -1,0 +1,12 @@
+FROM python:3.9
+
+RUN pip install pandas
+
+WORKDIR /app
+COPY pipeline.py /app/pipeline.py
+
+# for this example pipeline will use the arguments from cli, 
+# therefore the way to run this command is:
+# docker run -it [name] [arguments] 
+# >> docker run -it test:pandas 2024-01-28
+ENTRYPOINT ["python" , "pipeline.py"]
